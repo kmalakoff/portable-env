@@ -1,0 +1,19 @@
+{
+  "name": "portable-env",
+  "version": "1.0.0",
+  "description": "Portable environment variables in the browser and server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmalakoff/portable-env.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kmalakoff/portable-env/issues"
+  },
+  "homepage": "https://github.com/kmalakoff/portable-env#readme"
+}
