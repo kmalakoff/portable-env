@@ -1,6 +1,8 @@
 const isBrowser =
   typeof window !== "undefined" && typeof window.__ENV__ !== "undefined";
 
-export default function env(key) {
-  return isBrowser ? window.__ENV__[key] : process.env[key];
-}
+const env = isBrowser ? window.__ENV__ : process.env;
+
+module.exports = function(key) {
+  return key ? env[key] : env;
+};
