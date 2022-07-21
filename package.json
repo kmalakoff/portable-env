@@ -2,35 +2,40 @@
   "name": "portable-env",
   "version": "1.2.1",
   "description": "Portable environment variables in the browser and server",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha test/spec/**/*.test.js",
-    "compat": "nvs 14,12,10,8,6,4,0.12,0.10,0.8 mocha-compat test/spec/**/*.test.js",
-    "lint": "eslint . --ext js,mjs",
-    "format": "prettier --write '**/*.{js,mjs}'"
+  "homepage": "https://github.com/kmalakoff/portable-env#readme",
+  "bugs": {
+    "url": "https://github.com/kmalakoff/portable-env/issues"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kmalakoff/portable-env.git"
   },
-  "author": "",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/kmalakoff/portable-env/issues"
+  "author": "",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "eslint . --ext js,mjs",
+    "prepublishOnly": "npm run lint && depcheck",
+    "test": "mocha-compat test/spec/**/*.test.js",
+    "test:engines": "nvu engines npm test"
   },
-  "homepage": "https://github.com/kmalakoff/portable-env#readme",
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "mocha": "^7.1.2",
+    "@typescript-eslint/parser": "^5.30.7",
+    "depcheck": "^1.4.3",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.2.4",
+    "eslint-plugin-promise": "^6.0.0",
     "mocha-compat": "^3.5.5",
-    "nvs": "^0.1.8",
-    "prettier": "^2.0.5"
+    "prettier": "^2.7.1"
+  },
+  "engines": {
+    "node": ">=0.8"
   }
 }
