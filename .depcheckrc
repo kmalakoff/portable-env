@@ -1,1 +1,1 @@
-ignores: ["depcheck"]
+ignores: ["portable-env", "depcheck", "ts-dev-stack", "@types/*"]
