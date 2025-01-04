@@ -1,21 +1,21 @@
-var assert = require('assert');
+const assert = require('assert');
 
-var env = require('../..');
+const env = require('portable-env');
 
-describe('portable-env', function () {
-  describe('node', function () {
-    it('gets environment', function () {
+describe('portable-env', () => {
+  describe('node', () => {
+    it('gets environment', () => {
       env.load();
       assert.ok(env().NODE);
     });
   });
 
-  describe('windows', function () {
-    it('gets environment', function () {
+  describe('windows', () => {
+    it('gets environment', () => {
       global.window = { __ENV__: { thing: 10 } };
       env.load();
       assert.equal(env().thing, 10);
-      delete global.window;
+      global.window = undefined;
     });
   });
 });
