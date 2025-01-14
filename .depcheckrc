@@ -1,1 +1,1 @@
-ignores: ["portable-env", "@types/*", "@biomejs/*"]
+ignores: ["@types/*", "portable-env", "@biomejs/*"]
