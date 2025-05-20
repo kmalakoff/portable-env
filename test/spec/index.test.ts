@@ -1,20 +1,21 @@
-const assert = require('assert');
+import assert from 'assert';
 
-const env = require('portable-env');
+// @ts-ignore
+import env, { load } from 'portable-env';
 
 describe('portable-env', () => {
   describe('node', () => {
     it('gets environment', () => {
-      env.load();
+      load();
       assert.ok(env().NODE);
     });
   });
 
   describe('windows', () => {
     it('gets environment', () => {
-      global.window = { __ENV__: { thing: 10 } };
-      env.load();
-      assert.equal(env().thing, 10);
+      (global.window as unknown) = { __ENV__: { thing: '10' } };
+      load();
+      assert.equal(env().thing, '10');
       global.window = undefined;
     });
   });
