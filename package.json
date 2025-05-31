@@ -1,6 +1,6 @@
 {
   "name": "portable-env",
-  "version": "1.2.16",
+  "version": "1.2.17",
   "description": "Portable environment variables in the browser and server",
   "homepage": "https://github.com/kmalakoff/portable-env#readme",
   "bugs": {
