@@ -7,7 +7,7 @@ describe('portable-env', () => {
   describe('node', () => {
     it('gets environment', () => {
       load();
-      assert.ok(env().NODE);
+      assert.ok(env().HOME);
     });
   });
 
