@@ -1,6 +1,5 @@
 import assert from 'assert';
 
-// @ts-ignore
 import env, { load } from 'portable-env';
 
 describe('portable-env', () => {
