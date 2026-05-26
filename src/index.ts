@@ -1,4 +1,4 @@
-let env = null;
+let env: NodeJS.ProcessEnv | undefined;
 
 declare global {
   interface Window {
@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-export default (): NodeJS.ProcessEnv => env;
+export default (): NodeJS.ProcessEnv => env as NodeJS.ProcessEnv;
 export function load(): NodeJS.ProcessEnv {
   const isBrowser = typeof window !== 'undefined' && typeof window.__ENV__ !== 'undefined';
   env = isBrowser ? window.__ENV__ : process.env;
