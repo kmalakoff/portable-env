@@ -15,7 +15,7 @@ describe('portable-env', () => {
       (global.window as unknown) = { __ENV__: { thing: '10' } };
       load();
       assert.equal(env().thing, '10');
-      global.window = undefined;
+      global.window = undefined as unknown as Window & typeof globalThis;
     });
   });
 });
