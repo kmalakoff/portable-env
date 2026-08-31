@@ -1,1 +1,1 @@
-ignores: ["node-version-use", "ts-dev-stack", "portable-env"]
+ignores: ["portable-env", "node-version-use", "ts-dev-stack"]
