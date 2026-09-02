@@ -1,12 +1,7 @@
-function isObject(value) {
-  const type = typeof value;
-  return value != null && (type == "object" || type == "function");
-}
+const isBrowser =
+  typeof window !== "undefined" && typeof window.__ENV__ !== "undefined";
 
-function isBrowser() {
-  return typeof window !== "undefined" && isObject(window.__ENV__);
-}
-
-export default function env(key) {
-  return isBrowser() ? window.__ENV__[key] : process.env[key];
-}
+module.exports = function(key) {
+  const env = isBrowser ? window.__ENV__ : process.env;
+  return key ? env[key] : env;
+};
