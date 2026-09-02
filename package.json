@@ -4,7 +4,10 @@
   "description": "Portable environment variables in the browser and server",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/spec/**/*.test.js",
+    "compat": "nvs 14,12,10,8,6,4,0.12,0.10,0.8 mocha-compat test/spec/**/*.test.js",
+    "lint": "eslint . --ext js,mjs",
+    "format": "prettier --write '**/*.{js,mjs}'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +18,19 @@
   "bugs": {
     "url": "https://github.com/kmalakoff/portable-env/issues"
   },
-  "homepage": "https://github.com/kmalakoff/portable-env#readme"
+  "homepage": "https://github.com/kmalakoff/portable-env#readme",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^7.1.2",
+    "mocha-compat": "^3.5.5",
+    "nvs": "^0.1.8",
+    "prettier": "^2.0.5"
+  }
 }
