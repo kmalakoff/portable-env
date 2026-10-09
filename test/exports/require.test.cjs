@@ -1,11 +1,11 @@
 const assert = require('assert');
-const portableEnv = require('portable-env');
+const { env, requiredEnv } = require('portable-env');
 
 describe('exports .cjs', () => {
-  it('default', () => {
-    assert.equal(typeof portableEnv, 'function');
+  it('env', () => {
+    assert.equal(typeof env, 'function');
   });
-  it('load', () => {
-    assert.equal(typeof portableEnv.load, 'function');
+  it('requiredEnv', () => {
+    assert.equal(typeof requiredEnv, 'function');
   });
 });

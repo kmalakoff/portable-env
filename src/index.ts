@@ -1,15 +1,3 @@
-let env: NodeJS.ProcessEnv | undefined;
-
-declare global {
-  interface Window {
-    __ENV__: NodeJS.ProcessEnv;
-  }
-}
-
-export default (): NodeJS.ProcessEnv => env as NodeJS.ProcessEnv;
-export function load(): NodeJS.ProcessEnv {
-  const isBrowser = typeof window !== 'undefined' && typeof window.__ENV__ !== 'undefined';
-  env = isBrowser ? window.__ENV__ : process.env;
-  return env;
-}
-load();
+export { default as env } from './env.ts';
+export { default as requiredEnv } from './requiredEnv.ts';
+export type { Environment } from './types.ts';

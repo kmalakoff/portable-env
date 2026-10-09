@@ -1,11 +1,11 @@
 import assert from 'assert';
-import portableEnv, { load } from 'portable-env';
+import { env, requiredEnv } from 'portable-env';
 
 describe('exports .ts', () => {
-  it('default', () => {
-    assert.equal(typeof portableEnv, 'function');
+  it('env', () => {
+    assert.equal(typeof env, 'function');
   });
-  it('load', () => {
-    assert.equal(typeof load, 'function');
+  it('requiredEnv', () => {
+    assert.equal(typeof requiredEnv, 'function');
   });
 });

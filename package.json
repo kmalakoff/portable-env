@@ -18,30 +18,46 @@
       "import": "./dist/esm/index.js",
       "require": "./dist/cjs/index.js"
     },
-    "./package.json": "./package.json"
+    "./node": {
+      "import": "./dist/esm/node.js",
+      "require": "./dist/cjs/node.js"
+    },
+    "./package.json": "./package.json",
+    "./umd": "./dist/umd/portable-env.cjs"
   },
   "main": "dist/cjs/index.js",
   "source": "src/index.ts",
   "types": "dist/cjs/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "node"
   ],
   "scripts": {
     "build": "tsds build",
     "format": "tsds format",
     "prepublishOnly": "tsds validate",
-    "test": "tsds test:node --no-timeouts",
-    "test:engines": "nvu engines tsds test:node --no-timeouts",
+    "test": "npm run test:browser && tsds test:node --no-timeouts",
+    "test:browser": "tsds test:browser --config wtr.config.mjs test/unit/env.test.ts test/unit/requiredEnv.test.ts test/exports/import.test.ts test/exports/import.test.mjs test/exports/umd.browser.ts",
+    "test:engines": "npm run test:browser && nvu engines tsds test:node --no-timeouts",
     "version": "tsds version"
   },
   "devDependencies": {
     "@types/mocha": "*",
     "@types/node": "*",
+    "fs-remove-compat": "^1.0.6",
     "node-version-use": "*",
     "ts-dev-stack": "*",
-    "tsds-config": "*"
+    "tsds-config": "*",
+    "tsds-web-test-runner": "^1.20.10"
   },
   "engines": {
     "node": ">=0.8"
+  },
+  "tsds": {
+    "targets": [
+      "cjs",
+      "esm",
+      "umd"
+    ]
   }
 }
